@@ -1,0 +1,15 @@
+---
+
+services:
+  name: Service 1
+  secret: my-very-secret-long-string
+  endpoints:
+    - key: "ws"
+      endpoint: "ws://localhost:12312"
+      disabled: false
+    - key: "ws-fallback"
+      endpoint: "ws://localhost:12313"
+      disabled: false
+    - key: "ws-old"
+      endpoint: "ws://localhost:12311"
+      disabled: true
