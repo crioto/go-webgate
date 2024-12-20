@@ -79,6 +79,8 @@ func BuildCache(services []*EndpointCategory) error {
 }
 
 func RunService(c *cli.Context) error {
+	log.SetLevel(log.TraceLevel)
+
 	config := new(Config)
 	if err := config.ReadConfig(ConfigFilePath); err != nil {
 		log.Fatalf("Failed to read config: %s", err.Error())
@@ -100,7 +102,7 @@ func RunService(c *cli.Context) error {
 }
 
 func Handle(w http.ResponseWriter, r *http.Request) {
-	log.Debugf("New request")
+	log.Traceln("Handle()")
 	req, ok := cache[r.Header.Get("X-Webgate-Request")]
 	if !ok {
 		log.Debugf("Request missing header")
