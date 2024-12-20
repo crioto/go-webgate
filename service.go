@@ -100,8 +100,10 @@ func RunService(c *cli.Context) error {
 }
 
 func Handle(w http.ResponseWriter, r *http.Request) {
+	log.Debugf("New request")
 	req, ok := cache[r.Header.Get("X-Webgate-Request")]
 	if !ok {
+		log.Debugf("Request missing header")
 		return
 	}
 	w.Write(req)
