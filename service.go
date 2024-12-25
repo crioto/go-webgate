@@ -63,7 +63,7 @@ func BuildCache(services []*EndpointCategory) error {
 			if endpoint.Disabled {
 				continue
 			}
-			pairs += fmt.Sprintf("{'%s': '%s'},", endpoint.Key, endpoint.Endpoint)
+			pairs += fmt.Sprintf("{\"%s\": \"%s\"},", endpoint.Key, endpoint.Endpoint)
 		}
 
 		if len(pairs) > 0 {
