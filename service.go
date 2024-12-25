@@ -67,7 +67,7 @@ func BuildCache(services []*EndpointCategory) error {
 		}
 
 		if len(pairs) > 0 {
-			cache[service.Secret] = []byte(fmt.Sprintf("{\"endpoints\":[%s]}", pairs[:len(pairs)-1]))
+			cache[service.Secret] = []byte(fmt.Sprintf("{\"Endpoints\":[%s]}", pairs[:len(pairs)-1]))
 		}
 	}
 
